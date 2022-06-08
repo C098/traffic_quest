@@ -1,2 +1,7 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container1">
+  <%= simple_form_for @event, defaults: { input_html: { class: '' } } do |f| %>
+    <%= f.input :address %>
+    <%= f.input :category %>
+    <%= f.submit "Report"%>
+  <% end %>
+</div>
