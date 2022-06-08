@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events, only: [:create, :new]
+  resources :events, only: [:create, :new, :update, :edit]
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
