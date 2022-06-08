@@ -1,0 +1,28 @@
+// // a and b boxes width -> reduce so they do not touch the cross and + and -
+.mapbox-directions-component.mapbox-directions-inputs {
+  height: 136px !important;
+  width: 331px !important;
+}
+
+
+// // for the black box where you have the directions - reduced to put at bottom of page
+// .directions-control.directions-control-instructions {
+//   width: 379px !important;
+//   height: 392px !important;
+//   margin-top: 0px !important;
+//   overflow-y: hidden !important;
+// }
+
+// .direction_box_mapbox {
+//   min-width: 291px !important;
+// }
+
+.directions-control.directions-control-instructions {
+  height: 200px !important;
+  position: absolute;
+  top: 523px;
+}
+
+.directions-control.directions-control-directions {
+  max-height: 100% !important;
+}
