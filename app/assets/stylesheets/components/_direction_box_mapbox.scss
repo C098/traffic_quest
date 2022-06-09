@@ -36,3 +36,7 @@
 .mapbox-directions-instructions {
   width: 100% !important;
 }
+
+.mapboxgl-ctrl-geocoder--input {
+  display: none !important;
+}
