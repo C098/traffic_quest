@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+
+  def index
+    @events = Event.all
+  end
+
   def new
     @event = Event.new
   end
@@ -22,6 +27,10 @@ class EventsController < ApplicationController
     @event.update(event_params)
 
     redirect_to root_path
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private

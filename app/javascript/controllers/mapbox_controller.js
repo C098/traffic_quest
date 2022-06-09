@@ -21,8 +21,8 @@ export default class extends Controller {
     this.#controlButtons()
     this.#navigateTo()
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl }))
   }
 
   #controlButtons() {
