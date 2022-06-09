@@ -1,3 +1,17 @@
+
+<div class="container1">
+  <%= simple_form_for @event, defaults: { input_html: { class: '' } } do |f| %>
+    <%= f.input :address, :collection =>
+        ['Port-Louis, Mauritius', 'Grand Baie, Mauritius', 'Centre de Flacq, Flacq, Mauritius',
+        'Curepipe, Plaines Wilhems, Mauritius', 'Vacoas-Phoenix, Plaines Wilhems, Mauritius', 'Grand Bois,
+        Savanne, Mauritius', 'Chamarel, Rivière Noire, Mauritius', 'Les Salines, Rivière Noire, Mauritius',
+        'Grand Gaube, Rivière du Rempart, Mauritius', 'Mahébourg, Grand Port, Mauritius', 'Grand Sable, Grand Port, Mauritius',
+        'Quartier Militaire, Moka, Mauritius', 'Camp Thorel, Moka, Mauritius'], prompt: "Add your Address"%>
+    <%= f.input :category, :collection => ['crash', 'traffic jam', 'road closed', 'police check', 'speed gun', 'booze truck'],
+      prompt: 'Add your Incident'%>
+    <%= f.submit "Report"%>
+  <% end %>
+
 <div class="big">
   <div class="container">
       <img
@@ -12,4 +26,5 @@
         <% end %>
       </div>
     </div>
+
 </div>
