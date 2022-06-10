@@ -1,0 +1,28 @@
+import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+
+export default class extends Controller {
+  static values = { apiKey: String }
+
+  static targets = ["address"]
+  #setInputValue(event) {
+    this.addressTarget.value = event.result["place_name"]
+  }
+
+  #clearInputValue() {
+    this.addressTarget.value = ""
+  }
+
+  connect() {
+    console.log("hello")
+    this.geocoder = new MapboxGeocoder({
+      accessToken: this.apiKeyValue,
+      types: "country,region,place,postcode,locality,neighborhood,address",
+      worldview: "in"
+    });
+    this.geocoder.addTo(this.element)
+    this.geocoder.on("result", event => this.#setInputValue(event))
+    this.geocoder.on("clear", () => this.#clearInputValue())
+
+  }
+}
