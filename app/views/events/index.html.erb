@@ -1,0 +1,7 @@
+<ul>
+  <% @events.each do |event| %>
+   <ol><%= event.category %></ol>
+   <ol><%= event.address %></ol>
+   <%= link_to "Edit", edit_event_path(event) %>
+  <% end %>
+</ul>
