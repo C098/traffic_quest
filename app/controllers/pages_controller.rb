@@ -26,7 +26,7 @@ class PagesController < ApplicationController
     when "police check"
       return "check.png"
     when "speed gun"
-      return "gun.jpeg"
+      return "speedgun.jpeg"
     when "accident"
       return "crash.png"
     when "road works"
