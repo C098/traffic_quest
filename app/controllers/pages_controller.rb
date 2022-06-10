@@ -22,17 +22,17 @@ class PagesController < ApplicationController
     when "traffic jam"
       return "jam.webp"
     when "road closed"
-      return "closed.jpeg"
+      return "closed.jpg"
     when "police check"
       return "check.png"
-    # when "speed gun"
-    #   return "speedgun.jpeg"
+    when "speed gun"
+      return "speedgun.jpg"
     when "accident"
       return "crash.png"
     when "road works"
       return "work.png"
     else
-      return "pin.jpeg"
+      return "pin.jpg"
     end
   end
 end
