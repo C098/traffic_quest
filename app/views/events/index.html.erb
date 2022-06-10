@@ -3,5 +3,9 @@
    <ol><%= event.category %></ol>
    <ol><%= event.address %></ol>
    <%= link_to "Edit", edit_event_path(event) %>
+   <%= link_to 'Remove',
+        event_path(event),
+        method: :delete,
+        data: { confirm: 'Are you sure' }%>
   <% end %>
 </ul>
