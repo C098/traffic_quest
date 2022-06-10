@@ -13,26 +13,49 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/navigation-day-v1"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#locateUser()
+    this.#controlButtons()
+    this.#navigateTo()
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl }))
   }
 
-  // #addMarkersToMap() {
+  #controlButtons() {
+    // Add zoom and rotation controls to the map.
+    this.map.addControl(new mapboxgl.NavigationControl());
+  }
 
-  //   this.markersValue.forEach((marker) => {
-  //     new mapboxgl.Marker()
-  //       .setLngLat([ marker.lng, marker.lat ])
-  //       .addTo(this.map)
-  //   });
-  // }
+  #navigateTo() {
+    this.map.addControl(
+      new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+      }),
+      'top-left'
+      );
+  }
+
+  #locateUser() {
+    // Add geolocate control to the map.
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+      })
+    );
+  }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      console.log(marker)
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
       // Create a HTML element for your custom marker
