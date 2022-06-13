@@ -27,26 +27,19 @@ Event.destroy_all
 
 puts 'Creating users...'
 
-arcat = ['crash', 'traffic jam', 'road closed', 'police check', 'speed gun', 'accident', 'road works']
+arcat = ['traffic jam', 'road closed', 'car on fire', 'flood', 'accident', 'road works', 'slippery road', 'flood']
 arrdress = ['Port-Louis, Mauritius', 'Grand Baie, Mauritius', 'Centre de Flacq, Flacq, Mauritius',
-  'Curepipe, Plaines Wilhems, Mauritius', 'Vacoas-Phoenix, Plaines Wilhems, Mauritius', 'Grand Bois,
-  Savanne, Mauritius', 'Chamarel, Rivière Noire, Mauritius', 'Les Salines, Rivière Noire, Mauritius',
-  'Grand Gaube, Rivière du Rempart, Mauritius', 'Mahébourg, Grand Port, Mauritius', 'Grand Sable, Grand Port, Mauritius',
-'Quartier Militaire, Moka, Mauritius', 'Camp Thorel, Moka, Mauritius']
+            'Curepipe, Plaines Wilhems, Mauritius', 'Vacoas-Phoenix, Plaines Wilhems, Mauritius', 'Grand Bois,
+            Savanne, Mauritius', 'Chamarel, Rivière Noire, Mauritius', 'Les Salines, Rivière Noire, Mauritius',
+            'Grand Gaube, Rivière du Rempart, Mauritius', 'Mahébourg, Grand Port, Mauritius',
+            'Grand Sable, Grand Port, Mauritius', 'Quartier Militaire, Moka, Mauritius', 'Camp Thorel, Moka, Mauritius']
 
 5.times do
   user1 = User.create(
     email: Faker::Internet.email,
     password: '123456'
   )
-#   event1 = Event.create(
-#     category: arcat.sample,
-#     address: "#{ar.sample}, Mauritius",
-#     user_id: user1.id
-#   )
 end
-
-# Event.create(category: 'crash', address: 'Port-Louis, Mauritius', user: User.all.sample)
 
 arrdress.each do |ad|
   Event.create(category: arcat.sample, address: ad, user: User.all.sample)
