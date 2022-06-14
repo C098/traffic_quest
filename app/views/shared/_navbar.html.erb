@@ -1,11 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-    <div class="d-flex p-2">
-      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkfWDLpC7SWYYWZFkzavFyWb1RsM8n8Yt_Mw&usqp=CAU"%>
-       <h2>TrafficQuest</h2>
-    </div>
+    <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkfWDLpC7SWYYWZFkzavFyWb1RsM8n8Yt_Mw&usqp=CAU"%>
     <% end %>
+    <h2 class="movetaglinebot">TrafficQuest</h2>
 <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,7 +23,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-primary text-light ml-xl" %>
           </li>
         <% end %>
      <!--</ul> -->
