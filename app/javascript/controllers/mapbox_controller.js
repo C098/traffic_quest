@@ -13,7 +13,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/outdoors-v11"
+      style: "mapbox://styles/mapbox/streets-v11"
     })
     this.directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
@@ -32,11 +32,14 @@ export default class extends Controller {
     this.#navigateTo()
     this.#turf()
     this.#displayObtacles()
-    // this.#directionsTo()
 
-    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    // this.map.addControl(
+    //   new MapboxGeocoder({
+    //     accessToken: mapboxgl.accessToken,
+    //     countries: 'mu',
     //   mapboxgl: mapboxgl }))
   }
+
     #turf(){
       let clearances = {}
       let coordinates = []
@@ -44,7 +47,7 @@ export default class extends Controller {
       this.markersValue.forEach(marker => {
         coordinates= [marker.lng, marker.lat]
         // coordinates.toArray()
-    // console.log(coordinates)
+    console.log(coordinates)
       this.clearances = {
         type: 'FeatureCollection',
         features: [
@@ -52,21 +55,161 @@ export default class extends Controller {
             type: 'Feature',
             geometry: {
               type: 'Point',
-              coordinates: coordinates
+              coordinates: [57.5028044, -20.1624522]
             },
             properties: {
               clearance: "13' 2"
             }
           },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.584627, -20.0130199]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.7229652, -20.1948891]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.52546910520675, -20.319745150000003]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.483888290325055, -20.29847815]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.5511401, -20.4188774]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.3894868, -20.4259903]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.3700095, -20.3702752]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.6644156, -20.0086191]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.7060616, -20.4111041]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.7695472, -20.3247212]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.5971562, -20.2464775]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.6229284, -20.2165293]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.7398677, -20.2827282]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [57.5028044, -20.1624522]
+            },
+            properties: {
+              clearance: "13' 2"
+            }
+          }
         ]}
   });
   }
 
   #displayObtacles() {
     // console.log("clearances",this.clearances)
-    const obstacle = turf.buffer(this.clearances, 0.25, { units: 'kilometers' });
-    const bbox = [0, 0, 0, 0];
-    const polygon = turf.bboxPolygon(bbox);
+    const obstacle = turf.buffer(this.clearances, 0.09, { units: 'kilometers' });
+    let bbox = [0, 0, 0, 0];
+    let polygon = turf.bboxPolygon(bbox);
     // console.log(polygon)
     this.map.on('style.load', () => {
       this.map.addLayer({
@@ -79,83 +222,83 @@ export default class extends Controller {
         layout: {},
         paint: {
           'fill-color': '#f03b20',
-          'fill-opacity': 0.1,
+          'fill-opacity': 0.25,
           'fill-outline-color': '#f03b20'
         }
   })
-});
-// Source and layer for the route
-this.map.addSource('theRoute', {
+  // Source and layer for the route
+  this.map.addSource('theRoute', {
+    type: 'geojson',
+    data: {
+      type: 'Feature'
+    }
+  });
+
+  this.map.addLayer({
+    id: 'theRoute',
+    type: 'line',
+    source: 'theRoute',
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#cccccc',
+      'line-opacity': 0.5,
+      'line-width': 13,
+      'line-blur': 0.5
+    }
+  });
+
+// Source and layer for the bounding box
+this.map.addSource('theBox', {
   type: 'geojson',
   data: {
     type: 'Feature'
   }
 });
-
 this.map.addLayer({
-  id: 'theRoute',
-  type: 'line',
-  source: 'theRoute',
-  layout: {
-    'line-join': 'round',
-    'line-cap': 'round'
-  },
+  id: 'theBox',
+  type: 'fill',
+  source: 'theBox',
+  layout: {},
   paint: {
-    'line-color': '#cccccc',
-    'line-opacity': 0.5,
-    'line-width': 13,
-    'line-blur': 0.5
+    'fill-color': '#FFC300',
+    'fill-opacity': 0.5,
+    'fill-outline-color': '#FFC300'
   }
 });
-
-    // Source and layer for the bounding box
-    this.map.addSource('theBox', {
-      type: 'geojson',
-      data: {
-        type: 'Feature'
-      }
-    });
-    this.map.addLayer({
-      id: 'theBox',
-      type: 'fill',
-      source: 'theBox',
-      layout: {},
-      paint: {
-        'fill-color': '#FFC300',
-        'fill-opacity': 0.5,
-        'fill-outline-color': '#FFC300'
-      }
-    });
+});
       let counter = 0;
-      const maxAttempts = 50;
+      const maxAttempts = 100;
       let emoji = '';
       let collision = '';
       let detail = '';
       const reports = document.getElementById('reports');
 
       function addCard(id, element, clear, detail) {
-      const card = document.createElement('div');
-      card.className = 'card';
-      // Add the response to the individual report created above
-      const heading = document.createElement('div');
-      // Set the class type based on clear value
-      heading.className =
-      clear === true
-      ? 'card-header route-found'
-      : 'card-header obstacle-found';
-      heading.innerHTML =
-      id === 0
-      ? `${emoji} The route ${collision}`
-      : `${emoji} Route ${id} ${collision}`;
+          const card = document.createElement('div');
+          card.className = 'card';
+          // Add the response to the individual report created above
+          const heading = document.createElement('div');
+          // Set the class type based on clear value
+          heading.className =
+          clear === true
+          ? 'card-header route-found'
+          : 'card-header obstacle-found';
+          heading.innerHTML =
+          id === 0
+          ? `${emoji} The route ${collision}`
+          : `${emoji} Route ${id} ${collision}`;
 
-      const details = document.createElement('div');
-      details.className = 'card-details';
-      details.innerHTML = `This ${detail} obstacles.`;
+          const details = document.createElement('div');
+          details.className = 'card-details';
+          details.innerHTML = `This ${detail} obstacles.`;
 
-      card.appendChild(heading);
-      card.appendChild(details);
-      element.insertBefore(card, element.firstChild);
-      }
+          card.appendChild(heading);
+          card.appendChild(details);
+          element.insertBefore(card, element.firstChild);
+      };
 
       function noRoutes(element) {
       const card = document.createElement('div');
@@ -248,8 +391,8 @@ this.map.addLayer({
         );
       }
       // Add a new report section to the sidebar
-        addCard(counter, reports, clear, detail);
-    }
+      addCard(counter, reports, clear, detail);
+    };
     }
   });
   }
@@ -260,11 +403,6 @@ this.map.addLayer({
     // Add zoom and rotation controls to the map.
     this.map.addControl(new mapboxgl.NavigationControl());
   }
-
-  // #directionsTo(){
-  //   this.map.addControl(this.directions, 'top-right');
-  //   this.map.scrollZoom.enable();
-  // }
 
   #navigateTo() {
     this.map.addControl(
