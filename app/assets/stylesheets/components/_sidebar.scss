@@ -1,0 +1,41 @@
+.sidebar {
+  position: absolute;
+  margin: 20px 20px 30px 20px;
+  width: 37%;
+  top: 215px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.102);
+  overflow-y: scroll;
+  height: 50%;
+}
+
+.card {
+  font-size: small;
+  border-bottom: solid #d3d3d3 2px;
+  margin-bottom: 6px;
+  }
+
+  .card-header {
+  font-weight: bold;
+  padding: 6px;
+  color: #f00;
+  }
+
+  .no-route {
+  background-color: #d3d3d3;
+  color: #f00;
+  }
+
+  .obstacle-found {
+  background-color: #d3d3d3;
+  color: #fff;
+  }
+
+  .route-found {
+  background-color: #33a532;
+  color: #fff;
+  }
+
+  .card-details {
+  padding: 3px 6px;
+  }
