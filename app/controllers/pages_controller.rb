@@ -10,7 +10,7 @@ class PagesController < ApplicationController
         lat: event.latitude,
         lng: event.longitude,
         info_window: render_to_string(partial: "info_window", locals: { event: event }),
-        image_url: helpers.asset_url("traffic-lights.png")
+        image_url: helpers.asset_url(event.event_selection)
       }
     end
   end
