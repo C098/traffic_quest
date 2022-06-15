@@ -19,7 +19,6 @@ import "bootstrap"
         var scene = document.getElementById('scene');
         var parallax = new Parallax(scene);
 
-        // Error 500 JS
         const error = document.querySelector(".error-500");
         let i = 0, data = "", text = error.getAttribute("data-text");
 
