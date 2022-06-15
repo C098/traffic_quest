@@ -1,0 +1,5 @@
+meta_product_name: "-----Traffic Quest-----"
+meta_title: "TrafficQuest - For a Hassle-free and pleasant trip"
+meta_description: "For a Hassle-free and pleasant trip"
+meta_image: "apple-icon-precomposed.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
