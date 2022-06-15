@@ -1,12 +1,11 @@
  <div class=" traffic_status_page">
 
-<div class="grid-container">
-    <ul class='padoff grid-item'><% @events.each do |event| %>
-      <div class= "d-flex">
+    <ul class='padoff'><% @events.each do |event| %>
+      <div class= "d-flex temp-1">
 
-        <div class= "d-flex">
+        <div class= "d-flex  padoff-box" >
           <strong><ul class='padoff'><%= event.category %></ul></strong>
-          <ul class='padoff'><%= event.address %></ul>
+          <ul><%= event.address %></ul>
         </div>
 
         <div class=" button2" id= 'btn'>
@@ -20,4 +19,3 @@
     <% end %>
     </ul>
   </div>
-</div>
