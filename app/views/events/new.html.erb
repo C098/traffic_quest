@@ -1,17 +1,19 @@
+
+
 <div class="big">
-  <div class="container">
+  <div class="container-lg">
       <img
         src="https://images.unsplash.com/photo-1530685932526-48ec92998eaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhZmZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
         alt="image">
-      <div class="container-text">
-        <h2><strong>Signal an event</strong></h2>
+      <div class="container">
+       <h2><strong>Signal an event</strong></h2>
         <%= simple_form_for @event, defaults: { input_html: { class: '' } } do |f| %>
           <%= f.input :address, prompt: "Add your Address",
             input_html: { data: { geocoder_target: "address" }, class: "d-none" },
             wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
           <%= f.input :category, :collection => ['accident','car on fire', 'flood', 'road closed', 'road works', 'slippery road', 'traffic jam'],
       prompt: 'Add your Incident' %>
-          <%= f.submit "Report", class: "btn reportbutton"%>
+          <%= f.submit "Report", class: "btn btn-primary text-light" %>
         <% end %>
       </div>
     </div>
