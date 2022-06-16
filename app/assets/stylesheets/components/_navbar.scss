@@ -1,7 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
   height: 56;
+  background: rgb(34,193,195);
+  background: linear-gradient(225deg, rgba(34,193,195,1) 0%, rgba(167,81,81,1) 100%);
+}
+
+.navbar{
+  border-radius: 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,15 +14,18 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 59px;
 }
 
-.avatar {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4TKmLL_Yab3zrnGsM-6FzOgBGSm3lcXkndb1E5xQagw5YlZ9ClcBcC46v3Eq9vfBSIQ&usqp=CAU');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  width: 45px;
-}
+// .avatar {
+//   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4TKmLL_Yab3zrnGsM-6FzOgBGSm3lcXkndb1E5xQagw5YlZ9ClcBcC46v3Eq9vfBSIQ&usqp=CAU');
+//   background-size: 100% 100%;
+//   // background-repeat: no-repeat;
+//   // width: 50px;
+//   // height: 45px;
+
+
+// }
 
 // .tagline {
 //   margin: auto;
@@ -27,6 +35,11 @@
 .movetaglinebot {
 line-height: inherit;
 margin-bottom: 0;
+  a{
+    text-decoration: none;
+    color: rgb(233, 224, 224);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 }
 
 .boxmaster {

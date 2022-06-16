@@ -27,7 +27,7 @@ Event.destroy_all
 
 puts 'Creating users...'
 
-arcat = ['traffic jam', 'road closed', 'car on fire', 'flood', 'accident', 'road works', 'slippery road', 'flood']
+arcat = ['Traffic Jam', 'Road Closed', 'Car on Fire', 'Flood', 'Accident', 'Road Works', 'Slippery Road', 'Flood']
 arrdress = ['Port-Louis, Mauritius', 'Grand Baie, Mauritius', 'Centre de Flacq, Flacq, Mauritius',
             'Curepipe, Plaines Wilhems, Mauritius', 'Vacoas-Phoenix, Plaines Wilhems, Mauritius', 'Grand Bois,
             Savanne, Mauritius', 'Chamarel, Rivière Noire, Mauritius', 'Les Salines, Rivière Noire, Mauritius',
