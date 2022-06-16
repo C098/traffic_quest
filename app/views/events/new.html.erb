@@ -11,7 +11,7 @@
           <%= f.input :address, prompt: "Add your Address",
             input_html: { data: { geocoder_target: "address" }, class: "d-none" },
             wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-          <%= f.input :category, :collection => ['accident','car on fire', 'flood', 'road closed', 'road works', 'slippery road', 'traffic jam'],
+          <%= f.input :category, :collection => ['Accident','Car on Fire', 'Flood', 'Road Closed', 'Road Works', 'Slippery Road', 'Traffic Jam'],
       prompt: 'Add your Incident' %>
           <%= f.submit "Report", class: "btn btn-primary text-light" %>
         <% end %>
