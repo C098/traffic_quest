@@ -24,6 +24,50 @@ $cursor: pointer;
 //   overflow: hidden;
 // }
 
+.form-container-clear {
+  margin: 0px !important;
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  margin: 0px !important;
+}
+
+.mb-3.select.optional.event_category {
+  margin: 10px 0 10px 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-select.select.optional {
+  width: 75%;
+  margin: auto;
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  width: 75%;
+  margin: auto !important;
+}
+
+.mb-3.string.optional.event_address {
+  margin: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  margin: auto;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search {
+  position: relative !important;
+  float: right;
+  margin-bottom: -60px !important;
+}
+
 .container-lg {
   background-color: $primary-color;
   width: 600px;
@@ -36,6 +80,8 @@ $cursor: pointer;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.185);
   padding-left: 0px;
   padding-right: 0px;
+  text-align: center;
+
 
   // &::after {
   //   content: '';
