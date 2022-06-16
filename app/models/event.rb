@@ -5,19 +5,19 @@ class Event < ApplicationRecord
 
   def event_selection
     case category
-    when "accident"
+    when "Accident"
       return "accident.png"
-    when "car on fire"
+    when "Car on fire"
       return "fire.png"
-    when "flood"
+    when "Flood"
       return "flood.png"
-    when "road closed"
+    when "Road closed"
       return "closed.png"
-    when "road works"
+    when "Road works"
       return "roadwork.png"
-    when "slippery road"
+    when "Slippery road"
       return "slippery.png"
-    when "traffic jam"
+    when "Traffic jam"
       return "jam.png"
     else
       return "pin.png"
